@@ -1,0 +1,41 @@
+Excercicse 0.4 Description: can be found here: https://fullstackopen.com/en/part0/fundamentals_of_web_apps. 
+To-do: create a diagram showing what happens when a user interacrs with a web app
+
+Solution: 
+sequenceDiagram
+    participant browser
+    participant server
+    participant user
+
+user ->> browser: type a text into a search bar
+
+browser--server: POST
+https://studies.cs.helsinki.fi/exampleapp/new_note
+activate servier
+server-->browser: document/redirect
+deactivate server
+
+browser->>server: GET
+https://studies.cs.helsinki.fi/exampleapp/notes
+activate server
+server->> browser: HTML document
+deactivate server
+
+
+browser->>server: GET
+https://studies.cs.helsinki.fi/exampleapp/main.css
+activate server
+server->> browser: css file
+deactivate server
+
+browser->>server: GET
+https://studies.cs.helsinki.fi/exampleapp/main.js
+activate server
+server->> browser: javascript file
+deactivate server
+
+browser->>server: GET
+https://studies.cs.helsinki.fi/exampleapp/data.json
+activate server
+server->> browser: [{ "content": "HTML is easy", "date": "2023-1-1" }, ... ]
+deactivate server
